@@ -1,5 +1,22 @@
-import os
 import numpy as np
+import pickle
+
+def dense_to_one_hot(labels_dense, num_classes = 3):
+    num_labels = labels_dense.shape[0]
+    index_offset = np.arange(num_labels) * num_classes
+    labels_one_hot = np.zeros((num_labels, num_classes))
+    labels_one_hot.flat[index_offset + labels_dense.ravel()] = 1
+    return labels_one_hot
+
+def load_data(filename, one_hot=False):
+    with open(filename, 'rb') as fo:
+        dict = pickle.load(fo, encoding='bytes')
+        data = dict['data']
+        labels = dict['label']
+
+        if one_hot:
+            labels = dense_to_one_hot(labels)
+        return data, labels
 
 class DataSet(object):
     def __init__(self, data, labels):
@@ -11,15 +28,19 @@ class DataSet(object):
         self._epochs_completed = 0
         self._index_in_epoch = 0
 
+    @property
     def data(self):
         return self._data
 
+    @property
     def labels(self):
         return self._lables
 
+    @property
     def num_examples(self):
         return self._num_examples
 
+    @property
     def epochs_completed(self):
         return self._epochs_completed
 
@@ -41,8 +62,12 @@ class DataSet(object):
         end = self._index_in_epoch
         return self._data[start:end], self._lables[start:end]
 
-def read_data_sets(train_dir, one_hot=False):
-    class DataSet(object):
+def read_data_sets(one_hot=False):
+    class DataSets(object):
         pass
-    data_set = DataSets()
-
+    train_data, train_labels = load_data('./data/train', one_hot)
+    test_data, test_labels = load_data('./data/test', one_hot)
+    data_sets = DataSets()
+    data_sets.train = DataSet(train_data, train_labels)
+    data_sets.test = DataSet(test_data, test_labels)
+    return data_sets
