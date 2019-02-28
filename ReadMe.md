@@ -57,4 +57,5 @@ For more information please go to https://ieeexplore.ieee.org/document/6695876.
 ### 5. Contact
 
 Author: Shiqi Wang
+
 Email: swang50@lakeheadu.ca
