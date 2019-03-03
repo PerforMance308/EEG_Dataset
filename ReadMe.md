@@ -21,7 +21,7 @@ In the "data" folder, there are train and test dataset containing downsampled, p
 
 ### 2. Data Structure
 
-The dataset containing extracted differential entropy (DE) features of the EEG signals. These data is well-suited to those who want to quickly test a classification method without propcessing the raw EEG data. The training set contains a total of 19960 data and testing set contains 13720 data. Each piece of data contains 310 values representing the data of 62 electrodes on 5 frequencies.
+The dataset containing extracted differential entropy (DE) features of the EEG signals. These data is well-suited to those who want to quickly test a classification method without propcessing the raw EEG data. The training set contains a total of 84420 data and testing set contains 58128 data. Each piece of data contains 310 values representing the data of 62 electrodes on 5 frequencies.
 
 ------
 
