@@ -1,5 +1,23 @@
 import numpy as np
+from six.moves import urllib
+import os
+import tensorflow as tf
 import pickle
+
+DATA_DIRECTORY = "data"
+SOURCE_URL = 'http://18.217.162.49:8888/'
+
+def maybe_download(filename):
+    """Download the data, unless it's already here."""
+    if not tf.gfile.Exists(DATA_DIRECTORY):
+        tf.gfile.MakeDirs(DATA_DIRECTORY)
+    filepath = os.path.join(DATA_DIRECTORY, filename)     
+    if not tf.gfile.Exists(filepath):
+        filepath, _ = urllib.request.urlretrieve(SOURCE_URL + filename, filepath)         
+        with tf.gfile.GFile(filepath) as f:
+            size = f.size()
+        print('Successfully downloaded', filename, size, 'bytes.')
+    return filepath
 
 def dense_to_one_hot(labels_dense, num_classes = 3):
     num_labels = labels_dense.shape[0]
@@ -65,8 +83,11 @@ class DataSet(object):
 def read_data_sets(one_hot=False):
     class DataSets(object):
         pass
-    train_data, train_labels = load_data('./data/train', one_hot)
-    test_data, test_labels = load_data('./data/test', one_hot)
+    train_filename = maybe_download('train')
+    test_filename = maybe_download('test')
+
+    train_data, train_labels = load_data(train_filename, one_hot)
+    test_data, test_labels = load_data(test_filename, one_hot)
     data_sets = DataSets()
     data_sets.train = DataSet(train_data, train_labels)
     data_sets.test = DataSet(test_data, test_labels)
