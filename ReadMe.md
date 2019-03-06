@@ -27,6 +27,8 @@ The dataset containing extracted differential entropy (DE) features of the EEG s
 
 ### 3. How to use
 
+First, download load_data.py and put it in your program.
+
 ```python
 import load_data
 
