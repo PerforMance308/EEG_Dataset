@@ -13,7 +13,7 @@ def maybe_download(filename):
         tf.gfile.MakeDirs(DATA_DIRECTORY)
     filepath = os.path.join(DATA_DIRECTORY, filename)     
     if not tf.gfile.Exists(filepath):
-        print('Start downling dataset...')
+        print('Start downloading dataset...')
         filepath, _ = urllib.request.urlretrieve(SOURCE_URL + filename, filepath)         
         with tf.gfile.GFile(filepath) as f:
             size = f.size()
