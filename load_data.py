@@ -5,7 +5,7 @@ import tensorflow as tf
 import pickle
 
 DATA_DIRECTORY = "data"
-SOURCE_URL = 'http://18.217.162.49:8888/'
+SOURCE_URL = 'http://35.183.27.27/'
 
 def maybe_download(filename):
     """Download the data, unless it's already here."""
