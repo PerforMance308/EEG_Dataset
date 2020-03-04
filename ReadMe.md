@@ -24,7 +24,7 @@ First, Download dataset from [here](https://drive.google.com/file/d/1Ql5jRm-JDHN
 Second, unzip the downloaded file and put the train test files in the folder under the project /data/
 
 Then, download load_data.py and put it in the same directory with /data folder. The directory structure is as follows:
-![image](https://github.com/lexsaints/powershell/blob/master/IMG/ps2.png)
+![image](https://github.com/PerforMance308/EEG_Dataset/blob/master/folder.png)
 
 ```python
 import load_data
