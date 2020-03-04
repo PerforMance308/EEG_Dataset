@@ -19,6 +19,10 @@ The dataset containing extracted differential entropy (DE) features of the EEG s
 
 ### 3. How to use
 
+First, Download dataset from [here](https://www.google.com).
+Second, unzip the downloaded file and put the train test files in the folder under the project /data/
+
+
 First, download load_data.py and put it in your program.
 
 ```python
