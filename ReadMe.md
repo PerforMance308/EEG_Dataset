@@ -19,12 +19,14 @@ The dataset containing extracted differential entropy (DE) features of the EEG s
 
 ### 3. How to use
 
-First, Download dataset from [here](https://drive.google.com/file/d/1Ql5jRm-JDHNm46sfX68ahEXCUrVw7VFR/view?usp=sharing).
+1. Download dataset from [here](https://drive.google.com/file/d/1Ql5jRm-JDHNm46sfX68ahEXCUrVw7VFR/view?usp=sharing).
 
-Second, unzip the downloaded file and put the train test files in the folder under the project /data/
+2. Unzip the downloaded file and put the train test files in the folder under the project /data/
 
-Then, download load_data.py and put it in the same directory with /data folder. The directory structure is as follows:
+3. Download load_data.py and put it in the same directory with /data folder. The directory structure is as follows:
 ![image](https://github.com/PerforMance308/EEG_Dataset/blob/master/folder.png)
+
+4. Add the following statement to your code to use.
 
 ```python
 import load_data
