@@ -9,10 +9,10 @@ SOURCE_URL = 'http://35.183.27.27/'
 
 def maybe_download(filename):
     """Download the data, unless it's already here."""
-    if not tf.gfile.Exists(DATA_DIRECTORY):
+    if not tf.io.gfile.exists(DATA_DIRECTORY):
         tf.gfile.MakeDirs(DATA_DIRECTORY)
     filepath = os.path.join(DATA_DIRECTORY, filename)     
-    if not tf.gfile.Exists(filepath):
+    if not tf.io.gfile.exists(filepath):
         print('Start downloading dataset...')
         filepath, _ = urllib.request.urlretrieve(SOURCE_URL + filename, filepath)         
         with tf.gfile.GFile(filepath) as f:
