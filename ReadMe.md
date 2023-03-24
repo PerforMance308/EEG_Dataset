@@ -51,7 +51,9 @@ n_samples = data.train.num_examples
 
 ### 4. More
 
-For more information please go to https://ieeexplore.ieee.org/document/6695876.
+For more information please go to:
+- https://ieeexplore.ieee.org/document/6695876
+- https://ieeexplore.ieee.org/abstract/document/7883875
 
 ------
 
